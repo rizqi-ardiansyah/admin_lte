@@ -1,0 +1,32 @@
+h6 {
+    color: rgb(87, 91, 104);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+ul {
+    padding: 0;
+}
+
+ul li {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.modal-footer {
+    justify-content: center;
+}
+
+.btn {
+    background-color: rgb(2, 55, 230);
+    border-color: rgb(2, 55, 230);
+    color: white;
+    justify-content: center;
+    width: 20%;
+    padding: 2vh;
+    margin-top: 2vh;
+    border-radius: 0.8rem;
+    box-shadow: none
+}
