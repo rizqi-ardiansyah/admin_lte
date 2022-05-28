@@ -39,3 +39,7 @@ Route::prefix('transaction/')->group(function(){
     Route::put('{id}/update', [TransactionController::class, 'updateTrans'])->name('update.trans');
     Route::get('{id}/order', [TransactionController::class, 'checkOrder'])->name('order.check');
 });
+
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    return $request->user();
+});

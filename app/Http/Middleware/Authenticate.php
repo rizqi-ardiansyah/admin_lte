@@ -3,18 +3,29 @@
 namespace App\Http\Middleware;
 
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
-use RealRashid\SweetAlert\Facades\Alert;
-class Authenticate extends Middleware {
+use Illuminate\Support\Facades\Auth;
+
+class Authenticate extends Middleware
+{
     /**
      * Get the path the user should be redirected to when they are not authenticated.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return string|null
      */
-    protected function redirectTo($request) {
-        if (! $request->expectsJson()) {
-            Alert::error('Error', 'Silahkan Login Terlebih Dahulu');
-            return route('login.auth');
-        }
+    protected function redirectTo($request)
+    {
+        // if (! $request->expectsJson()) {
+        //     return route('login');
+        // }
+        if (Auth::guard('web')->check()) {
+
+            return redirect('/login-page');
+      
+          } else if (Auth::guard('admin')->check()) {
+      
+            return redirect('/login');
+            
+          }
     }
 }

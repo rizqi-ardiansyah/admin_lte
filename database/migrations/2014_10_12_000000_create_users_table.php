@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::connection('mysql2')->create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
@@ -21,13 +21,12 @@ return new class extends Migration
             $table->string('phone', 25);
             $table->unsignedBigInteger('id_role');
             $table->timestamp('email_verified_at')->nullable();
-            $table->timestamp('last_seen')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
 
-            $table->foreign('id_role')->references('id')->on('role')->cascadeOnDelete();
         });
+
     }
 
     /**

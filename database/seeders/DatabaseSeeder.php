@@ -21,7 +21,9 @@ class DatabaseSeeder extends Seeder
             SpecializationSeeder::class,
             TecnicianSeeder::class,
             TransactionSeeder::class,
-            // MessageSeeder::class,
+            MessageSeeder::class,
+            RolesAndPermissionsSeeder::class,
+            UserTableSeeder::class,
         ]);
     }
 }
